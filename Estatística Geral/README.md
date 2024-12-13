@@ -154,3 +154,19 @@ Valores de escore-z:
 - \(Z < 0\): O valor está abaixo da média.  
 - \(Z = 0\): O valor é igual à média.
 ---
+
+## Probabilidade
+A probabilidade é uma medida numérica da possibilidade de um evento ocorrer. Valores probabilísticos são sempre atribuídos em uma escala de 0 a 1. Uma probabilidade próxima de 0 indica que é pouco provável que um evento ocorra; uma probabilidade próxima de 1 revela que a ocorrência de um evento é quase certa.
+
+### **Espaço amostral**
+Chama-se espaço amostral o conjunto de todos os possíveis resultados de um experimento aleatório ou, em outras palavras, é o conjunto universo relativo aos resultados de um experimento.
+
+**Evento:** É um subconjunto de elementos do espaço amostral.
+
+### **Axiomas de probabilidade**
+Dado um espaço amostral, Ω, suponha que estamos estudando um evento A. A probabilidade do evento A ocorrer é denotada por P(A). A função P(A) só será uma probabilidade se ela satisfaz três condições básicas:
+* 0 ≤ P(A) ≤ 1
+* P(Ω) = 1
+* P(A1 ∪ A2 ∪ A3 ∪...) = P(A1)+P(A2)+P(A3)+..., se os eventos A1, A2,... forem
+disjuntos (isto é, mutuamente exclusivos).
+
