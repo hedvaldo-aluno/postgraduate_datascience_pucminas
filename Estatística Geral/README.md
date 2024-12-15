@@ -283,3 +283,37 @@ Se uma pessoa testa positivo, qual é a probabilidade de ela realmente ter a doe
    $P(\text{Doença} \mid \text{Positivo}) = \frac{0.95 \cdot 0.01}{0.059} \approx 0.161 \$
 
 Apesar do teste positivo, a probabilidade de ter a doença é de apenas **16,1%**, devido à baixa prevalência da doença.
+
+## Variáveis aleatórias
+Uma variável aleatória é uma função que associa um número real a cada resultado possível de um experimento aleatório.
+
+### Variáveis aleatórias discretas 
+Uma variável aleatória discreta assume valores em um conjunto contável, como números inteiros ou um conjunto finito.
+
+**Características:**
+- **Função de Probabilidade:** Define a probabilidade de a variável assumir cada valor específico.
+- **Exemplo:**
+  - Experimento: Lançar um dado justo (seis faces).
+  - Valores possíveis: $\( X = \{1, 2, 3, 4, 5, 6\} \)$.
+  - Função: $\( P(X = x) = \frac{1}{6} \)$, para $\( x = 1, 2, 3, 4, 5, 6 \)$.
+
+### Variáveis aleatórias contínuas
+Uma variável aleatória contínua pode assumir qualquer valor em um intervalo incontável de números reais.
+
+**Características:**
+- **Função Densidade de Probabilidade:** Representa a densidade de probabilidade em torno de um ponto, mas não a probabilidade direta.
+   * F(x) ≥ 0, para todo x;
+   * A área definida por F(x) é igual a 1;
+   * Para quaisquer a e b, com -∞ < a < b < +∞, teremos P(a ≤ X ≤ b) = $\int_{a}^{b}$ F(x)dx.
+
+- **Exemplo:**
+  - Experimento: Medir a altura de pessoas em uma população.
+  - Valores possíveis: Qualquer número real dentro de um intervalo, como $\( X \in [150, 200] \)$ (em cm).
+  - A área sob a curva da função em um intervalo específico representa a probabilidade de $\( X \)$ estar naquele intervalo.
+
+ ### Propriedades de Variáveis Aleatórias
+- **Esperança Matemática (Valor Esperado):** Representa a média ponderada dos valores possíveis da variável, considerando suas probabilidades.
+  - Fórmula para variáveis discretas:  
+    $\( E[X] = \sum_{i} x_i P(X = x_i) \)$.
+  - Fórmula para variáveis contínuas:  
+    $\( E[X] = \int_{-\infty}^{\infty} x f(x) dx \)$.
