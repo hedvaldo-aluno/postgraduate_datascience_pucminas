@@ -170,3 +170,116 @@ Dado um espaço amostral, Ω, suponha que estamos estudando um evento A. A proba
 * P(A1 ∪ A2 ∪ A3 ∪...) = P(A1)+P(A2)+P(A3)+..., se os eventos A1, A2,... forem
 disjuntos (isto é, mutuamente exclusivos).
 
+## Árvore de Probabilidade
+
+A **árvore de probabilidade** é uma ferramenta visual usada em estatística e probabilidade para organizar e calcular probabilidades de eventos compostos. É especialmente útil para entender problemas envolvendo múltiplos eventos, possibilitando uma visão clara de todas as possíveis combinações e seus resultados.
+
+### Estrutura de uma Árvore de Probabilidade
+
+1. **Ramos (ou galhos)**: Representam os diferentes eventos ou escolhas possíveis.
+2. **Nós**: Pontos onde os ramos se bifurcam, indicando o início de novos eventos ou decisões.
+3. **Probabilidades**: Atribuídas a cada ramo, indicando a chance de cada evento ocorrer.
+4. **Caminhos completos**: Representam sequências de eventos, e suas probabilidades podem ser calculadas multiplicando as probabilidades ao longo de cada caminho.
+
+### Como Construir uma Árvore de Probabilidade
+
+1. **Identifique os eventos**: Liste todos os eventos possíveis que podem ocorrer em cada estágio.
+2. **Desenhe os ramos**: Para cada evento, desenhe um ramo a partir de um nó inicial.
+3. **Adicione probabilidades**: Atribua a probabilidade de cada evento a seu respectivo ramo.
+4. **Calcule probabilidades compostas**: Multiplique as probabilidades ao longo dos ramos para encontrar a probabilidade total de cada resultado.
+
+
+Cada caminho da árvore representa um resultado possível, e a probabilidade de cada caminho é dada por:
+
+- Cara → Cara: $P(\text{Cara, Cara})=\frac{1}{2}\times\frac{1}{2}=\frac{1}{4}$
+- Cara → Coroa: $P(\text{Cara, Coroa})=\frac{1}{2}\times\frac{1}{2}=\frac{1}{4}$
+- Coroa → Cara: $P(\text{Coroa, Cara})=\frac{1}{2}\times\frac{1}{2}=\frac{1}{4}$
+- Coroa → Coroa: $P(\text{Coroa, Coroa})=\frac{1}{2}\times\frac{1}{2}=\frac{1}{4}$
+
+## Probabilidade Condicional
+A probabilidade condicional mede a probabilidade de um evento ocorrer dado que outro evento já ocorreu. É uma ferramenta essencial na teoria da probabilidade, sendo usada para modelar situações onde eventos estão relacionados.
+
+### Definição
+A probabilidade condicional de um evento $A$ dado que o evento $B$ ocorreu é representada por $P(A \mid B)$ e é calculada como:
+
+$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$
+
+**Onde:**
+- $P(A \mid B)$: Probabilidade de $A$ dado que $B$ ocorreu.
+- $P(A \cap B)$: Probabilidade de $A$ e $B$ ocorrerem juntos.
+- $P(B)$: Probabilidade de $B$ ocorrer. Deve ser maior que zero ($P(B) > 0$).
+
+### Exemplo Prático
+
+Considere o seguinte cenário: um baralho de 52 cartas. Qual é a probabilidade de uma carta ser um ás dado que já sabemos que ela é uma carta de espadas?
+
+**Passo a passo:**
+
+1. Identifique as probabilidades relevantes:
+   - Existem 13 cartas de espadas, ou seja, $P(B) = \frac{13}{52}$.
+   - Apenas 1 dessas cartas de espadas é um ás, ou seja, $P(A \cap B) = \frac{1}{52}$.
+
+2. Use a fórmula da probabilidade condicional:
+   $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$
+
+3. Substitua os valores:
+   $P(A \mid B) = \frac{\frac{1}{52}}{\frac{13}{52}} = \frac{1}{13}$
+
+Portanto, a probabilidade de a carta ser um ás dado que ela é uma carta de espadas é $P(A \mid B) = \frac{1}{13}$.
+
+### Propriedades
+
+1. **Dependência entre eventos**:
+   - Se $P(A \mid B) \neq P(A)$, os eventos $A$ e $B$ são dependentes.
+   - Se $P(A \mid B) = P(A)$, os eventos $A$ e $B$ são independentes.
+
+2. **Multiplicação de probabilidades**:
+   A probabilidade de $A$ e $B$ ocorrerem pode ser escrita em termos da probabilidade condicional:
+   $P(A \cap B) = P(A \mid B) \cdot P(B)$
+
+3. **Teorema da probabilidade total**:
+   Quando há vários eventos que particionam o espaço amostral, a probabilidade de um evento pode ser calculada somando as probabilidades condicionais ponderadas:
+   $P(A) = \sum_{i} P(A \mid B_i) \cdot P(B_i)$
+
+## Teorema de Bayes
+O teorema de Bayes demonstra que aquele que pensa no problema também influencia a probabilidade de um evento ocorrer com base no que ele sabe a priori sobre este evento.
+
+O Teorema de Bayes é expresso como:
+
+$P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}$
+
+**Onde:**
+- $P(A \mid B)$: Probabilidade de $A$ dado que $B$ ocorreu (probabilidade condicional).
+- $P(B \mid A)$: Probabilidade de $B$ dado que $A$ ocorreu.
+- $P(A)$: Probabilidade a priori de $A$ (antes de considerar $B$).
+- $P(B)$: Probabilidade de $B$ (normalizador, garantindo que o resultado seja uma probabilidade válida).
+
+### Exemplo Prático
+
+Imagine um teste para uma doença que tem os seguintes dados:
+
+- A doença afeta 1% da população: $P(\text{Doença}) = 0.01$.
+- O teste tem uma taxa de acerto de 95% para pessoas com a doença: $P(\text{Positivo} \mid \text{Doença}) = 0.95$.
+- O teste tem uma taxa de 5% de falsos positivos: $P(\text{Positivo} \mid \text{Sem Doença}) = 0.05$.
+
+Se uma pessoa testa positivo, qual é a probabilidade de ela realmente ter a doença?
+
+**Passo a passo:**
+1. Probabilidade de não ter a doença:
+   $P(\text{Sem Doença}) = 1 - P(\text{Doença}) = 0.99$
+
+2. Probabilidade de o teste dar positivo:
+   $P(\text{Positivo}) = P(\text{Positivo} \mid \text{Doença}) \cdot P(\text{Doença}) + P(\text{Positivo} \mid \text{Sem Doença}) \cdot P(\text{Sem Doença})$
+
+   Substituindo:
+   $P(\text{Positivo}) = (0.95 \cdot 0.01) + (0.05 \cdot 0.99) = 0.0095 + 0.0495 = 0.059$
+
+3. Aplicando o Teorema de Bayes:
+   $P(\text{Doença} \mid \text{Positivo}) = \frac{P(\text{Positivo} \mid \text{Doença}) \cdot P(\text{Doença})}{P(\text{Positivo})}$
+
+   Substituindo:
+   $P(\text{Doença} \mid \text{Positivo}) = \frac{0.95 \cdot 0.01}{0.059} \approx 0.161 \$
+
+Apesar do teste positivo, a probabilidade de ter a doença é de apenas **16,1%**, devido à baixa prevalência da doença.
