@@ -317,3 +317,91 @@ Uma variável aleatória contínua pode assumir qualquer valor em um intervalo i
     $\( E[X] = \sum_{i} x_i P(X = x_i) \)$.
   - Fórmula para variáveis contínuas:  
     $\( E[X] = \int_{-\infty}^{\infty} x f(x) dx \)$.
+
+## Distribuição Binomial de probabilidade
+Descreve o número de sucessos em uma sequência de experimentos independentes e idênticos, onde cada experimento tem exatamente dois possíveis resultados: sucesso ou fracasso.
+
+### Características
+* O experimento consiste em n tentativas (ou ensaios), todas independentes.
+* Cada tentativa resulta em sucesso ou fracasso.
+* A probabilidade de sucesso, denotada por 𝑝 permanece constante em cada tentativa.
+* A probabilidade de fracasso é 1 − 𝑝.
+* X representa o número de sucessos em n tentativas.
+
+### Função de probabilidade
+$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}\$
+   onde:
+   - $\( \binom{n}{k} = \frac{n!}{k!(n-k)!} \)$ é o número de combinações possíveis de $\( n \)$ elementos tomados $\( k \)$ a $\( k \)$.
+   - $\( k \)$ é o número de sucessos $(\( k = 0, 1, 2, \dots, n \))$.
+
+**Exemplo:**
+Seis parafusos são escolhidos ao acaso da produção de certa máquina, que apresenta 10% de peças defeituosas. Qual a probabilidade de serem defeituosos:  
+- a) Exatamente 2 parafusos,  
+- b) Pelo menos 1 parafuso,  
+- c) No máximo 1 parafuso?
+
+A variável aleatória $X$ representa o número de parafusos defeituosos.  
+Sendo $X \sim \text{Binomial}(n = 6, p = 0.1)$, utilizamos a fórmula da probabilidade binomial:
+
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$  
+Onde $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ é o número de combinações possíveis.
+
+---
+
+**a) Probabilidade de exatamente 2 parafusos defeituosos $(P(X = 2))$**
+
+Substituímos na fórmula:  
+$P(X = 2) = \binom{6}{2} (0.1)^2 (0.9)^4$
+
+Passo a passo:  
+- $\binom{6}{2} = \frac{6!}{2!(6-2)!} = 15$  
+- $(0.1)^2 = 0.01$  
+- $(0.9)^4 = 0.6561$
+
+Logo:  
+$P(X = 2) = 15 \cdot 0.01 \cdot 0.6561 = 0.0984$
+
+**Resposta:** $P(X = 2) = 0.0984$
+
+---
+
+**b) Probabilidade de pelo menos 1 parafuso defeituoso $(P(X \geq 1))$**
+
+A probabilidade de pelo menos 1 parafuso defeituoso pode ser calculada como o complemento de nenhum parafuso defeituoso:  
+$P(X \geq 1) = 1 - P(X = 0)$
+
+Calculando $P(X = 0)$:  
+$P(X = 0) = \binom{6}{0} (0.1)^0 (0.9)^6$
+- $\binom{6}{0} = 1$  
+- $(0.1)^0 = 1$  
+- $(0.9)^6 = 0.531441$
+
+Logo:  
+$P(X = 0) = 1 \cdot 1 \cdot 0.531441 = 0.531441$ 
+
+Portanto:  
+$P(X \geq 1) = 1 - 0.531441 = 0.468559$  
+
+**Resposta:** $P(X \geq 1) = 0.4686$
+
+---
+
+**c) Probabilidade de no máximo 1 parafuso defeituoso $(P(X \leq 1))$**
+
+A probabilidade de no máximo 1 parafuso defeituoso é a soma das probabilidades de $P(X = 0)$ e $P(X = 1)$:  
+$P(X \leq 1) = P(X = 0) + P(X = 1)$
+
+Já sabemos que $P(X = 0) = 0.531441$.  
+Agora calculamos $P(X = 1)$:  
+$P(X = 1) = \binom{6}{1} (0.1)^1 (0.9)^5$  
+- $\binom{6}{1} = 6$  
+- $(0.1)^1 = 0.1$  
+- $(0.9)^5 = 0.59049$
+
+Logo:  
+$P(X = 1) = 6 \cdot 0.1 \cdot 0.59049 = 0.354294$  
+
+Somando:  
+$P(X \leq 1) = 0.531441 + 0.354294 = 0.885735$  
+
+**Resposta:** $P(X \leq 1) = 0.8857$
