@@ -429,7 +429,7 @@ Em um banco, o número médio de clientes que adquirem um seguro é de 6 por hor
 
 ---
 
-**a) Probabilidade de exatamente 8 seguros ($P(X = 8)$)**
+**a) Probabilidade de exatamente 8 seguros $(P(X = 8))$**
 
 Substituímos na fórmula:  
 $P(X = 8) = \frac{6^8 e^{-6}}{8!}$
@@ -484,3 +484,108 @@ Portanto:
 $P(X \geq 1) = 1 - 0.00247875 = 0.99752125$  
 
 **Resposta:** $P(X \geq 1) \approx 0.9975$
+
+## Distribuição Exponencial
+
+A **Distribuição Exponencial** é utilizada para modelar o tempo entre eventos que ocorrem de forma contínua e independente, com uma taxa média constante. É frequentemente usada em áreas como confiabilidade de sistemas, tempo de vida de componentes e filas de espera.
+
+A função de densidade de probabilidade (PDF) da Distribuição Exponencial é:  
+$f(x; \lambda) = \lambda e^{-\lambda x}, \quad x \geq 0$ 
+
+Onde:  
+- $\lambda$ é a taxa média de ocorrência de eventos por unidade de tempo,  
+- $x$ é o tempo até o próximo evento,  
+- $e$ é a constante de Euler $(e \approx 2.71828)$.  
+
+A função de distribuição acumulada (CDF) é:  
+$F(x; \lambda) = P(X \leq x) = 1 - e^{-\lambda x}, \quad x \geq 0$  
+
+---
+
+**Exemplo: Tempo entre chamadas em um call center**
+
+Suponha que, em média, chegam 3 chamadas por minuto em um call center $(\lambda = 3)$. A variável $X$ representa o tempo (em minutos) até a próxima chamada.  
+
+1. Qual a probabilidade de o tempo até a próxima chamada ser menor que 30 segundos $(X \leq 0.5$ minutos)$?  
+
+**Resolução:**  
+
+A probabilidade acumulada é dada por:  
+$F(x; \lambda) = 1 - e^{-\lambda x}$  
+
+Substituímos os valores:  
+$F(0.5; 3) = 1 - e^{-3 \cdot 0.5}$  
+
+- $3 \cdot 0.5 = 1.5$  
+- $e^{-1.5} \approx 0.2231$  
+
+Logo:  
+$F(0.5; 3) = 1 - 0.2231 = 0.7769$  
+
+**Resposta:** A probabilidade de o tempo até a próxima chamada ser menor que 30 segundos é $0.7769$ ou **77,69%**.  
+
+---
+
+## Distribuição Exponencial + Distribuição Binomial
+
+A combinação de **Distribuição Exponencial** e **Distribuição Binomial** é comum em sistemas que analisam tempos de espera e número de eventos em intervalos específicos. A Distribuição Exponencial modela o tempo entre eventos, enquanto a Distribuição Binomial pode ser usada para calcular a probabilidade de um determinado número de eventos ocorrerem em várias tentativas ou intervalos.
+
+**Exemplo: Probabilidade de atender clientes dentro de um tempo limite**
+
+Um banco atende, em média, 2 clientes por minuto $(\lambda = 2)$. Se em 5 minutos são atendidos no máximo 3 clientes, qual é a probabilidade de cada cliente ser atendido em menos de 2 minutos?
+
+1. A probabilidade de atender um cliente em menos de 2 minutos é dada pela Distribuição Exponencial:  
+   $F(2; 2) = 1 - e^{-2 \cdot 2}$  
+
+   **Cálculo:**  
+   - $2 \cdot 2 = 4$  
+   - $e^{-4} \approx 0.0183$  
+   $F(2; 2) = 1 - 0.0183 = 0.9817$  
+
+   **Resposta:** A probabilidade de atender um cliente em menos de 2 minutos é $0.9817$ ou **98,17%**.
+
+2. Usando a **Distribuição Binomial** para calcular a probabilidade de no máximo 3 clientes serem atendidos em 5 minutos:  
+   - Número total de clientes: $n = 5$,  
+   - Probabilidade de sucesso (atendimento em menos de 2 minutos): $p = 0.9817$,  
+   - Usamos a fórmula da Binomial:  
+     $P(X \leq 3) = \sum_{k=0}^{3} \binom{5}{k} p^k (1 - p)^{5 - k}$  
+
+   Substituímos os valores:  
+   $P(X \leq 3) = \binom{5}{0}(0.9817)^0(0.0183)^5 + \dots + \binom{5}{3}(0.9817)^3(0.0183)^2$  
+
+   **Resposta:** O cálculo detalhado pode ser resolvido numericamente, mas mostra a interação entre as distribuições.
+
+## **Distribuição Normal**
+
+A **Distribuição Normal**, também conhecida como **Distribuição Gaussiana**, é uma das distribuições de probabilidade mais importantes na estatística. Ela modela fenômenos que apresentam uma concentração de valores em torno de uma média, com uma queda gradual para valores mais extremos, formando a clássica curva em formato de sino.
+
+### **Características da Distribuição Normal**
+1. **Formato da curva**:  
+   - A curva é simétrica em relação à média $(\mu)$.  
+   - Tem forma de sino e é unimodal (apenas um pico).
+   
+2. **Parâmetros principais**:
+   - $\mu$ (média): Localização do centro da distribuição.
+   - $\sigma$ (desvio padrão): Mede a dispersão dos dados em torno da média.
+   
+3. **Função de densidade de probabilidade (PDF)**:  
+   A probabilidade para um valor $x$ é dada pela fórmula:  
+   $f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$  
+   Onde:
+   - $x$: valor aleatório.
+   - $\mu$: média.
+   - $\sigma$: desvio padrão.
+
+4. **Propriedade da curva**:  
+   - Aproximadamente $68\%$ dos valores estão dentro de $1\sigma$ da média.  
+   - Aproximadamente $95\%$ estão dentro de $2\sigma$.  
+   - Aproximadamente $99.7\%$ estão dentro de $3\sigma$.
+
+---
+
+**Exemplo**
+Suponha que os pesos de uma população de gatos sigam uma distribuição normal com média $\mu = 4$ kg e desvio padrão $\sigma = 0.5$ kg.  
+Queremos calcular a probabilidade de um gato pesar entre $3.5$ kg e $4.5$ kg.
+
+Usando as propriedades da distribuição normal, sabemos que $68\%$ dos dados estão dentro de $1\sigma$ da média. Assim:  
+$P(3.5 \leq X \leq 4.5) = 0.68$
