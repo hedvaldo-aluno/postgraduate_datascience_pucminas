@@ -343,7 +343,7 @@ Seis parafusos são escolhidos ao acaso da produção de certa máquina, que apr
 A variável aleatória $X$ representa o número de parafusos defeituosos.  
 Sendo $X \sim \text{Binomial}(n = 6, p = 0.1)$, utilizamos a fórmula da probabilidade binomial:
 
-$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$  
+$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$  
 Onde $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ é o número de combinações possíveis.
 
 ---
@@ -405,3 +405,82 @@ Somando:
 $P(X \leq 1) = 0.531441 + 0.354294 = 0.885735$  
 
 **Resposta:** $P(X \leq 1) = 0.8857$
+
+## Distribuição de Poisson
+A Distribuição de Poisson é utilizada para modelar o número de ocorrências de um evento em um intervalo fixo de tempo ou espaço, onde as ocorrências são independentes e a taxa média de ocorrências é constante.  
+
+**A fórmula da probabilidade de Poisson é:**  
+$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$ 
+
+Onde:  
+- $X$ é o número de ocorrências,  
+- $\lambda$ é a taxa média de ocorrências no intervalo,  
+- $k$ é o número específico de ocorrências,  
+- $e$ é a constante de Euler ($e \approx 2.71828$).  
+
+---
+
+**Exemplo:**
+
+Em um banco, o número médio de clientes que adquirem um seguro é de 6 por hora ($\lambda = 6$). Determine a probabilidade de em uma hora ser vendido:  
+- a) exatamente 8 seguros,  
+- b) menos que 2 seguros,  
+- c) pelo menos 1 seguro.  
+
+---
+
+**a) Probabilidade de exatamente 8 seguros ($P(X = 8)$)**
+
+Substituímos na fórmula:  
+$P(X = 8) = \frac{6^8 e^{-6}}{8!}$
+
+Passo a passo:  
+- $6^8 = 1679616$  
+- $e^{-6} \approx 0.00247875$  
+- $8! = 40320$  
+
+Logo:  
+$P(X = 8) = \frac{1679616 \cdot 0.00247875}{40320} \approx 0.104195$  
+
+**Resposta:** $P(X = 8) \approx 0.1042$
+
+---
+
+**b) Probabilidade de menos que 2 seguros $(P(X < 2))$**
+
+Para calcular $P(X < 2)$, somamos as probabilidades de $P(X = 0)$ e $P(X = 1)$:  
+$P(X < 2) = P(X = 0) + P(X = 1)$  
+
+**Calculando $P(X = 0)$:**  
+$P(X = 0) = \frac{6^0 e^{-6}}{0!} = e^{-6}$  
+- $e^{-6} \approx 0.00247875$  
+
+Logo:  
+$P(X = 0) = 0.00247875$  
+
+**Calculando $P(X = 1)$:**  
+$P(X = 1) = \frac{6^1 e^{-6}}{1!} = \frac{6 \cdot e^{-6}}{1}$  
+- $6 \cdot e^{-6} \approx 0.0148725$  
+
+Logo:  
+$P(X = 1) = 0.0148725$  
+
+**Somando:**  
+$P(X < 2) = 0.00247875 + 0.0148725 = 0.01735125$  
+
+**Resposta:** $P(X < 2) \approx 0.0174$
+
+---
+
+**c) Probabilidade de pelo menos 1 seguro $(P(X \geq 1))$**
+
+A probabilidade de pelo menos 1 seguro é o complemento da probabilidade de nenhum seguro:  
+$P(X \geq 1) = 1 - P(X = 0)$  
+
+Já sabemos que:  
+$P(X = 0) \approx 0.00247875$  
+
+Portanto:  
+$P(X \geq 1) = 1 - 0.00247875 = 0.99752125$  
+
+**Resposta:** $P(X \geq 1) \approx 0.9975$
